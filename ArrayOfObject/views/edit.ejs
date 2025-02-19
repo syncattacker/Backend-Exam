@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit your Product</title>
+  </head>
+  <body>
+    <form
+      action="/products/<%= updateProduct.id %>?_method=PATCH"
+      method="post"
+    >
+      <h1>Form for Adding new Item</h1>
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        value="<%= updateProduct.name %>"
+        required
+      />
+      <label for="description">Description</label>
+      <input
+        type="text"
+        id="description"
+        name="description"
+        value="<%= updateProduct.description %>"
+        required
+      />
+      <label for="price">Price</label>
+      <input
+        type="number"
+        name="price"
+        id="price"
+        value="<%= updateProduct.price %>"
+        required
+        min="50"
+      />
+      <button type="submit">Add your Item.</button>
+    </form>
+  </body>
+</html>
