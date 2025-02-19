@@ -1,22 +1,38 @@
-// express path nodemon method-override body-parser ejs
+/*
+REQUIRED MODULES -->
+    - express
+    - path
+    - method-override
+    - body-parser
+    - ejs
+*/
 
-// Require Necessary Modules
+/*
+Required Modules
+*/
 
 const express = require("express");
 const path = require("path");
 const methodOverride = require("method-override");
 const bodyParser = require("body-parser");
 
-const server = express(); // Function -> listen
+const server = express();
 
 server.set("view engine", "ejs");
 server.set(path.join(__dirname), "views");
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(methodOverride("_method"));
+server.use(express.static(path.join(__dirname, "public")));
 
 /*
-HTTP VERBS
-CRUD => CREATE (POST) - RETRIEVE (GET) - UPDATE (PATCH) - DELETE (DELETE)
+OPERATIONS ---> CRUD ( CREATE, RETRIEVE, UPDATE, DELETE )
+
+NAME        HTTP VERBS
+CREATE      POST
+RETRIEVE    GET
+UPDATE      PATCH
+DELETE      DELETE
+
 */
 
 let Products = [
@@ -52,7 +68,7 @@ ROUTE TO CREATE A NEW PRODUCT (CREATE)
 
 server.get("/products/creation", (request, response) => {
   response.render("create");
-}); // FORM BHEGEJA SERVER
+});
 
 server.post("/products/create", (request, response) => {
   const { name, description, price } = request.body;
@@ -66,7 +82,7 @@ server.post("/products/create", (request, response) => {
   console.log(newItem);
   Products.push(newItem);
   response.redirect("/products");
-}); // DATA AAEGA CLIENT
+});
 
 /*
 ROUTE TO UPDATE AN EXISTING PRODUCT (UPDATE)
