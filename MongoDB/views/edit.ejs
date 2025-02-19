@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Your Blogs</title>
+  </head>
+  <body>
+    <form action="/blogs/<%= fetchBlog._id %>?_method=PATCH" method="post">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        value="<%= fetchBlog.title %>"
+        required
+      />
+      <label for="author">Author Name</label>
+      <input
+        type="text"
+        name="author"
+        id="author"
+        value="<%= fetchBlog.author %>"
+        required
+      />
+      <label for="image">Image</label>
+      <input
+        type="text"
+        name="image"
+        id="image"
+        value="<%= fetchBlog.image %>"
+      />
+      <button type="submit">Renew the JOSH !</button>
+    </form>
+  </body>
+</html>

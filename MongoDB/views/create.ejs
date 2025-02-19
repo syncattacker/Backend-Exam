@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Write your own blog</title>
+  </head>
+  <body>
+    <form action="/blogs/create" method="post">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        name="title"
+        id="title"
+        placeholder="Enter Blog Title"
+        required
+      />
+      <label for="author">Author</label>
+      <input
+        type="text"
+        name="author"
+        id="author"
+        placeholder="Your Good Name"
+        required
+      />
+      <input
+        type="text"
+        name="image"
+        id="image"
+        placeholder="Enter Image URL"
+        required
+      />
+      <button type="submit">Publish it!</button>
+    </form>
+  </body>
+</html>

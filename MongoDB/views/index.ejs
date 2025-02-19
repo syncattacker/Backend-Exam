@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Blogs</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>All Latest Blogs</h1>
+      <% for (let blog of blogs) { %>
+      <div>
+        <img src="<%= blog.image %>" alt="<%= blog.image %>" width="50%" />
+        <h3><%= blog.title %></h3>
+        <p><%= blog.author %></p>
+        <button type="button">
+          <a href="/blogs/<%= blog._id %>">See Full Blog</a>
+        </button>
+        <button type="button">
+          <a href="/blogs/<%= blog._id %>/update">Update your Blog</a>
+        </button>
+        <form action="/blogs/<%= blog._id %>?_method=DELETE" method="post">
+          <button type="submit">SAD TO SEE YOU GO!</button>
+        </form>
+      </div>
+      <% } %>
+      <a href="/blogs/write">Create an Impact</a>
+    </div>
+  </body>
+</html>
